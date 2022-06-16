@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: darkolivegreen;
+}
+
+.memory-game{
+    height: 640px;
+    width: 640px;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.card{
+    height: calc(33.333% - 10px);
+    width:calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(14, 55, 20, 0.3) ;
+    cursor: pointer;
+    transform: scale(1);
+    background: linear-gradient(45deg, #4dbf81 0%, #FFFB7D 89%);
+    border-radius: 5px;
+    transform-style: preserve-3d;/*não deixa o elemento achatado no plano*/
+    transition: transform .9s;
+
+
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.card:active{
+    transform: scale(.97);
+    transition: transform .3s;
+}
+
+
+.card-front, .card-back{
+    width: 100%;
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius:5px ;
+    backface-visibility: hidden;
+    
+}
+.card-back{
+    background: black;
+}
+
+.card-front{
+    transform: rotateY(180deg);
+    
+}
+.card::before{
+    content: "";
+    position:absolute;
+    border: 2px solid brown;
+    height: 85%;
+    width: 81%;
+    opacity: 100;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/*flip card animation*/
+.flip{
+    transform: rotateY(180deg);
+}
+/*extra*/
+.scoreboard{
+    font-family: 'Acme', sans-serif;
+    display: flex;
+    font-size: large;
+    width:100vh;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background: white;
+    color: black;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.playerActive{
+    
+    font-weight: 500;
+    color:brown;
+}
